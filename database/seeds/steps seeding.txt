@@ -1,0 +1,49 @@
+
+ php artisan make:model Models\Type_Blood -m
+
+
+----------
+model\ Type_Blood
+protected $fillable=['Name'];
+--------
+
+migration
+Type_Blood
+ $table->string('Name');
+
+ ---------
+
+ php artisan make:seeder BloodTableSeeder
+
+php artisan make:seeder UsersTableSeeder
+
+php artisan make:seeder CompsTableSeeder
+
+
+
+
+
+ php artisan migrate
+ احيانا يظهر اخطاء والحل نحذف البيانات
+ php artisan migrate:fresh
+
+----------
+
+لتنفيذ السيدر و اضافة البيانات يوجد طريقتين
+1-  php artisan db:seed --class=UsersTableSeeder
+
+
+هذه تستخدم لو كان عندك سيدر واحد
+لكن لو كان عندك عدد كبير من السيدر في الجدول
+نستخدم الطريقة التالية
+
+
+2- نذهب الى DatabaseSeeder
+ونكتب السيدر المطلوبة
+ $this->call(BloodTableSeeder::class);
+
+ثم يتم التفعيل من خلال الامر
+php artisan db:seed
+
+
+

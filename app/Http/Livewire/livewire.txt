@@ -1,0 +1,35 @@
+بيعمل شغلة شبيهة لل
+controller
+وبعمل صفحة
+componnent
+مثل ال view
+تنزيل الحزمة
+composer require livewire/livewire
+
+------------
+يتم تضمين  @livewireStyles 
+في head
+او نضعها لمرة واحدة في ملف head.blade.php
+وايضا نضيف @livewireScripts
+في footer-scripts.blade.php
+----------
+as axample
+php artisan make:livewire counter
+php artisan make:livewire CreateGroupServices
+
+سوف يتم انشاء مجلد
+app\http\livewire
+this class as controller
+---------------
+
+بعمل الصفحة الي بدي اياها وبعمل <livewire:counter /> 
+
+
+ php artisan make:model Models\My_Parent -m
+add fealds to migration
+
+نكتب العلاقات
+from migration -- foreign_keys
+php artisan migrate
+
+php artisan make:livewire AddParent

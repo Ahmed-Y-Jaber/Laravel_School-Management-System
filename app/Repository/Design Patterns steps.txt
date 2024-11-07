@@ -1,0 +1,53 @@
+فكرتها تنظيم الكود
+
+بعد ما عملنا 
+model , controller , migrate
+
+-------
+
+make folde app\Repository
+
+داخل الفولدر ملفين
+TeacherRepositoryInterface.php
+TeacherRepository.php
+
+then we make resources\views\pages\teachers -- create
+
+i will make function to get all all teachers
+i go to -->  TeacherRepositoryInterface.php 
+
+نذهب الى
+TeacherRepository.php
+نكتب الدوال التي اريد ها  
+ثم استدعيها في
+TeacherRepositoryInterface.php
+
+------
+
+go to teachercontroller 
+use App\Repository\TeacherRepositoryInterface; 
+ثم نسمح ل
+	
+protected $Teacher;
+    public function __construct(TeacherRepositoryInterface $Teacher)
+    {
+        $this->Teacher = $Teacher;
+    }
+
+---
+لازم نعمل provider
+php artisan make:provider RepoServiceProvider
+يجب ان نضمن البروفايدر الجديدة داخل
+config\app.php
+نكتب 
+ App\Providers\RepoServiceProvider::class,
+
+نذهب الى
+app\provider\RepoServiceProvider
+
+لازم نعمل 
+register 
+     $this->app->bind(
+            'App\Repository\TeacherRepositoryInterface',
+            'App\Repository\TeacherRepository');
+ 
